@@ -3,11 +3,12 @@ import {
   FiPlus,
   FiShare2,
 } from "react-icons/fi";
+import { Link } from "react-router";
 
 export default function LandingCard() {
   return (
     <div className="min-h-screen bg-[#F7F4F3] flex justify-center items-center p-4">
-      <div className="relative flex flex-col justify-between w-[360px] h-[780px] rounded-xl bg-gradient-to-b from-[#F8EEF2] via-white to-[#F8F7F5] overflow-hidden shadow-sm">
+      <div className="relative flex flex-col justify-between w-full max-w-[360px] min-h-[680px] rounded-3xl bg-gradient-to-b from-[#F8EEF2] via-white to-[#F8F7F5] overflow-hidden shadow-sm">
 
         {/* Hero */}
         <section className="px-6 pt-12 text-center">
@@ -24,13 +25,13 @@ export default function LandingCard() {
           </p>
 
           <div className="mt-10 space-y-4">
-            <button className="w-full h-14 rounded-full bg-[#635BFF] text-white font-medium shadow-lg shadow-indigo-300/40 transition hover:bg-[#574ff2]">
+            <Link to="/signup" className="flex w-full h-14 items-center justify-center rounded-full bg-[#635BFF] text-white font-medium shadow-lg shadow-indigo-300/40 transition hover:bg-[#574ff2]">
               Start Your Free Trial
-            </button>
+            </Link>
 
-            <button className="w-full h-14 rounded-full border border-gray-300 bg-white font-medium text-gray-700 transition hover:bg-gray-50">
-              Download App
-            </button>
+            <Link to="/login" className="flex w-full h-14 items-center justify-center rounded-full border border-gray-300 bg-white font-medium text-gray-700 transition hover:bg-gray-50">
+              Log In
+            </Link>
           </div>
         </section>
 

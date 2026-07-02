@@ -1,4 +1,3 @@
-import React from 'react'
 import ProductPreview from './Home/Section2'
 import Section1 from './Home/Section1'
 import HarmonySteps from './Home/Section3'

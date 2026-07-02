@@ -1,3 +1,29 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* Raw values (not @apply) so custom theme tokens resolve reliably in dev + build */
+    background-color: #f7f6f5; /* sand */
+    color: #171717; /* neutral-900 */
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Consistent, accessible focus ring across interactive elements */
+  :where(button, a, input, select, textarea):focus-visible {
+    outline: 2px solid #6554e8; /* brand */
+    outline-offset: 2px;
+  }
+}
