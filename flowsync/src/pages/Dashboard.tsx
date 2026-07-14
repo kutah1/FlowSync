@@ -5,6 +5,7 @@ import {
   HiOutlineClipboardDocumentList,
   HiOutlinePlus,
   HiOutlineChartBar,
+  HiOutlineMoon,
 } from "react-icons/hi2";
 import { useNavigate } from "react-router";
 import { BRAND, GRID } from "../constants/colors";
@@ -216,6 +217,14 @@ export default function Dashboard() {
           >
             <HiOutlineClipboardDocumentList />
             Daily Check-In
+          </button>
+
+          <button
+            onClick={() => navigate("/app/summary")}
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-white py-4 font-medium text-gray-700 border hover:bg-gray-50 transition"
+          >
+            <HiOutlineMoon />
+            Evening Reflection
           </button>
 
           <button

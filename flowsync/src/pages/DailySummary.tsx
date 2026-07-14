@@ -2,15 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import Card from "../components/ui/Card";
 import SectionLabel from "../components/ui/SectionLabel";
+import type { DayRating } from "../types";
 
-const dayOptions = [
+/** Keys match daily_feedback.day_rating exactly (see 002_schema_alignment.sql). */
+const dayOptions: { key: DayRating; label: string; emoji: string }[] = [
   { key: "better", label: "Better than expected", emoji: "🌟" },
-  { key: "as", label: "As expected", emoji: "🙂" },
+  { key: "as_expected", label: "As expected", emoji: "🙂" },
   { key: "harder", label: "More difficult than expected", emoji: "😮‍💨" },
 ];
 
 export default function DailySummary() {
-  const [day, setDay] = useState<string | null>(null);
+  const [day, setDay] = useState<DayRating | null>(null);
   const [helped, setHelped] = useState<boolean | null>(null);
   const navigate = useNavigate();
 

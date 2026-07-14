@@ -7,17 +7,31 @@ import {
 import { useNavigate } from "react-router";
 import Button from "../components/ui/Button";
 import OnboardingLayout from "../components/layout/OnboardingLayout";
+import {
+  DEFAULT_CYCLE_LENGTH,
+  MAX_CYCLE_LENGTH,
+  MIN_CYCLE_LENGTH,
+  isValidCycleLength,
+} from "../utils/cycle";
+
+/** Sentinel for the Custom card — never a real cycle length. */
+const CUSTOM = "custom" as const;
 
 export default function CycleLength() {
-  const [selected, setSelected] = useState(28);
+  const [selected, setSelected] = useState<number | typeof CUSTOM>(DEFAULT_CYCLE_LENGTH);
+  const [custom, setCustom] = useState("");
   const navigate = useNavigate();
 
   const options = [
     { value: 21, title: "21 days", subtitle: "Short", icon: <IoCalendarOutline size={22} /> },
     { value: 28, title: "28 days", subtitle: "Typical", icon: <IoCalendarOutline size={22} /> },
     { value: 35, title: "35 days", subtitle: "Long", icon: <IoCalendarOutline size={22} /> },
-    { value: 0, title: "Custom", subtitle: "Other", icon: <IoCreateOutline size={22} /> },
+    { value: CUSTOM, title: "Custom", subtitle: "Other", icon: <IoCreateOutline size={22} /> },
   ];
+
+  // The length we'd actually persist. Null while Custom is empty or out of range.
+  const cycleLength =
+    selected === CUSTOM ? (isValidCycleLength(Number(custom)) ? Number(custom) : null) : selected;
 
   return (
     <OnboardingLayout
@@ -27,7 +41,12 @@ export default function CycleLength() {
       onSkip={() => navigate("/onboarding/style")}
       footer={
         <div className="space-y-3">
-          <Button fullWidth size="lg" onClick={() => navigate("/onboarding/style")}>
+          <Button
+            fullWidth
+            size="lg"
+            disabled={cycleLength === null}
+            onClick={() => navigate("/onboarding/style")}
+          >
             Continue →
           </Button>
           <p className="text-center text-[10px] tracking-wider text-neutral-400">
@@ -77,6 +96,34 @@ export default function CycleLength() {
           );
         })}
       </div>
+
+      {/* Custom length — the Custom card is meaningless without it */}
+      {selected === CUSTOM && (
+        <div className="mt-5">
+          <label
+            htmlFor="custom-cycle-length"
+            className="mb-2 block text-xs font-semibold text-neutral-700"
+          >
+            Your cycle length (days)
+          </label>
+          <input
+            id="custom-cycle-length"
+            type="number"
+            inputMode="numeric"
+            min={MIN_CYCLE_LENGTH}
+            max={MAX_CYCLE_LENGTH}
+            value={custom}
+            onChange={(e) => setCustom(e.target.value)}
+            placeholder="e.g. 30"
+            autoFocus
+            aria-describedby="custom-cycle-hint"
+            className="h-14 w-full rounded-2xl border border-neutral-200 bg-white px-5 text-[15px] outline-none focus:border-brand"
+          />
+          <p id="custom-cycle-hint" className="mt-2 text-xs text-neutral-500">
+            Between {MIN_CYCLE_LENGTH} and {MAX_CYCLE_LENGTH} days.
+          </p>
+        </div>
+      )}
 
       {/* Info Box */}
       <div className="mt-6 flex gap-3 rounded-2xl bg-green-50 p-4">

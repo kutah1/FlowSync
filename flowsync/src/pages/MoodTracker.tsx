@@ -2,33 +2,46 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import Card from "../components/ui/Card";
 import SectionLabel from "../components/ui/SectionLabel";
+import { computeCapacity, dayTypeLabel, phaseNudge } from "../utils/capacity";
 
+/** Every input is 1–5 — the domain the check-in table stores. */
 const moods = [
-  { label: "Low", emoji: "😔" },
-  { label: "Okay", emoji: "😐" },
-  { label: "Good", emoji: "😊" },
-  { label: "Great", emoji: "🤩" },
+  { value: 1, label: "Low", emoji: "😔" },
+  { value: 2, label: "Meh", emoji: "😕" },
+  { value: 3, label: "Okay", emoji: "😐" },
+  { value: 4, label: "Good", emoji: "🙂" },
+  { value: 5, label: "Great", emoji: "🤩" },
 ];
 
-const sleepOptions = ["Poor", "Average", "Good"];
+/** Three choices, evenly spaced across the 1–5 scale. */
+const sleepOptions = [
+  { value: 1, label: "Poor" },
+  { value: 3, label: "Average" },
+  { value: 5, label: "Good" },
+];
 
 export default function MoodTracker() {
   const [energy, setEnergy] = useState(3);
   const [focus, setFocus] = useState(3);
   const [stress, setStress] = useState(2);
-  const [mood, setMood] = useState(2); // index into moods
-  const [sleep, setSleep] = useState(1); // index into sleepOptions
+  const [mood, setMood] = useState(3);
+  const [sleepQuality, setSleepQuality] = useState(3);
 
   const navigate = useNavigate();
 
-  // Hardcoded capacity formula (mirrors recommendation logic; stress inverts).
-  // energy/focus/mood/sleep raise capacity, stress lowers it. Scaled to 0–100.
-  const capacity = Math.round(
-    ((energy + focus + (mood + 1) + (sleep + 1) + (6 - stress)) / 25) * 100
-  );
+  // Single source of truth — mirrors calculate_capacity_score in Supabase.
+  const { percentage: capacity, category } = computeCapacity({
+    energy,
+    focus,
+    mood,
+    sleepQuality,
+    stress,
+  });
 
-  const dayType =
-    capacity >= 75 ? "High Energy Day" : capacity >= 45 ? "Balanced Day" : "Low Energy Day";
+  const dayType = dayTypeLabel(category);
+
+  // TODO: phase comes from the user's cycle profile once auth + persistence land.
+  const phase = "Follicular" as const;
 
   return (
     <div className="mx-auto max-w-md space-y-6">
@@ -56,16 +69,16 @@ export default function MoodTracker() {
           <span className="text-lg text-brand">☺</span>
           <SectionLabel>Current Mood</SectionLabel>
         </div>
-        <div className="flex justify-between">
-          {moods.map((item, index) => (
+        <div className="flex justify-between gap-2">
+          {moods.map((item) => (
             <button
               key={item.label}
-              onClick={() => setMood(index)}
-              aria-pressed={mood === index}
-              className={`flex h-14 w-14 flex-col items-center justify-center gap-0.5 rounded-2xl text-xl transition ${
-                mood === index
+              onClick={() => setMood(item.value)}
+              aria-pressed={mood === item.value}
+              className={`flex h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl text-xl transition ${
+                mood === item.value
                   ? "scale-105 bg-brand text-white shadow-brand"
-                  : "bg-neutral-100 hover:bg-neutral-200"
+                  : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
               }`}
             >
               <span>{item.emoji}</span>
@@ -82,18 +95,18 @@ export default function MoodTracker() {
           <SectionLabel>Sleep Quality</SectionLabel>
         </div>
         <div className="grid grid-cols-3 gap-3">
-          {sleepOptions.map((opt, index) => (
+          {sleepOptions.map((opt) => (
             <button
-              key={opt}
-              onClick={() => setSleep(index)}
-              aria-pressed={sleep === index}
+              key={opt.label}
+              onClick={() => setSleepQuality(opt.value)}
+              aria-pressed={sleepQuality === opt.value}
               className={`rounded-2xl py-3 text-sm font-medium transition ${
-                sleep === index
+                sleepQuality === opt.value
                   ? "bg-brand text-white shadow-brand"
                   : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
               }`}
             >
-              {opt}
+              {opt.label}
             </button>
           ))}
         </div>
@@ -114,8 +127,7 @@ export default function MoodTracker() {
           </div>
         </div>
         <p className="mt-4 text-sm leading-6 opacity-95">
-          You're in your <strong>Follicular phase</strong> — a great time for creative
-          brainstorming and starting new projects.
+          You're in your <strong>{phase} phase</strong> — {phaseNudge(phase)}.
         </p>
       </div>
 
