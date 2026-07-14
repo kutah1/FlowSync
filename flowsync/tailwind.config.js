@@ -27,7 +27,6 @@ export default {
           dark: "#5041C4",
           light: "#8A74FF",
           soft: "#F2F0FF",
-          deep: "#24006D",
         },
         // App surfaces — one cream, not six
         sand: {
@@ -44,7 +43,6 @@ export default {
           DEFAULT: "#F8D8EB",
           ink: "#7A3B5E",
         },
-        mauve: "#8D7785",
         // Cycle phase colors
         phase: {
           follicular: "#22C55E",

@@ -247,7 +247,7 @@ Tokens live in [`tailwind.config.js`](tailwind.config.js). Hex mirrors for SVG a
 | Token | Use |
 |---|---|
 | `brand` `#6554E8` | The **only** violet. Primary actions, active states. |
-| `brand-dark` / `brand-light` / `brand-soft` / `brand-deep` | Hover, gradients, tinted surfaces, deep contrast blocks |
+| `brand-dark` / `brand-light` / `brand-soft` | Hover, gradients, tinted surfaces |
 | `sand` `#F7F6F5` | Page background. `sand-field` for inputs, `sand-deep` for recessed panels |
 | `mint` / `blush` | Accent surfaces. Each has an `ink` variant — the text colour that passes contrast **on** that surface |
 | `phase-*` | Cycle phase colours: follicular 🟢, ovulation 🟠, luteal 🟣, menstrual 🩷 |

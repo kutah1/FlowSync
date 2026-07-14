@@ -1,4 +1,4 @@
-import { LuDroplets, LuZap } from "react-icons/lu";
+import { LuDroplets } from "react-icons/lu";
 
 export default function FeatureCards() {
   return (
@@ -44,20 +44,6 @@ export default function FeatureCards() {
                 Hormone-aware scheduling for ultimate flow.
               </p>
             </div>
-          </div>
-
-          {/* Burnout Card */}
-          <div className="flex flex-col items-center justify-center rounded-3xl bg-mauve py-12 text-center text-white">
-            <div className="text-6xl font-bold">94%</div>
-            <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-white/80">
-              Reduced Burnout
-            </p>
-          </div>
-
-          {/* Sync Pro — spans 2 cols on desktop */}
-          <div className="flex items-center justify-center gap-3 rounded-3xl bg-brand-deep py-12 text-center text-white md:col-span-2">
-            <LuZap size={22} strokeWidth={2} />
-            <p className="text-lg font-medium">Sync Pro — coming soon</p>
           </div>
         </div>
       </div>
