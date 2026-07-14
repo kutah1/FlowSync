@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function Section1() {
   return (
-    <div className="bg-[#F9F8F6]">
+    <div className="bg-sand">
       {/* Header */}
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link to="/" className="flex items-center gap-2">
@@ -36,7 +36,7 @@ export default function Section1() {
         <div className="pointer-events-none absolute -left-10 top-0 h-80 w-80 rounded-full bg-brand-light/30 blur-[110px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-full bg-[#DDF5C8] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-[#61735A]">
+          <span className="inline-flex items-center rounded-full bg-mint px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-mint-ink">
             ✦ The future of wellbeing
           </span>
 
@@ -45,7 +45,7 @@ export default function Section1() {
             <span className="italic text-brand">your rhythm,</span> not against it.
           </h1>
 
-          <p className="mx-auto mt-7 max-w-xl text-lg leading-8 text-[#5C5967]">
+          <p className="mx-auto mt-7 max-w-xl text-lg leading-8 text-neutral-600">
             Plan your day based on your energy levels, mental wellbeing, and cycle phase.
             Achieve peak performance without burnout.
           </p>

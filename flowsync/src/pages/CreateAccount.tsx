@@ -23,7 +23,7 @@ export default function CreateAccount() {
           >
             <path
               d="M2 9C5 2 10 2 15 9C20 16 25 16 32 9"
-              stroke="#6B5BEB"
+              stroke="#6554E8"
               strokeWidth="3"
               strokeLinecap="round"
             />
@@ -62,7 +62,7 @@ export default function CreateAccount() {
 
               <input
                 placeholder="Janice Miller"
-                className="h-14 w-full rounded-full bg-[#F6F3EF] px-6 text-[15px] outline-none placeholder:text-[#A8A4A0]"
+                className="h-14 w-full rounded-full bg-sand-field px-6 text-[15px] outline-none placeholder:text-neutral-400"
               />
             </div>
 
@@ -74,7 +74,7 @@ export default function CreateAccount() {
 
               <input
                 placeholder="janice@flowsync.com"
-                className="h-14 w-full rounded-full bg-[#F6F3EF] px-6 text-[15px] outline-none placeholder:text-[#A8A4A0]"
+                className="h-14 w-full rounded-full bg-sand-field px-6 text-[15px] outline-none placeholder:text-neutral-400"
               />
 
             </div>
@@ -90,7 +90,7 @@ export default function CreateAccount() {
                 <input
                   type="password"
                   placeholder="••••••••"
-                  className="h-14 w-full rounded-full bg-[#F6F3EF] px-6 pr-14 text-[15px] outline-none"
+                  className="h-14 w-full rounded-full bg-sand-field px-6 pr-14 text-[15px] outline-none"
                 />
 
                 <button

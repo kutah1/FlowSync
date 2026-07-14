@@ -13,6 +13,7 @@ import {
 import { HiOutlineBolt, HiOutlineCheckCircle } from "react-icons/hi2";
 import Card from "../components/ui/Card";
 import SectionLabel from "../components/ui/SectionLabel";
+import { BRAND, GRID, PHASE, SAND } from "../constants/colors";
 
 // Hardcoded sample data
 const energyTrend = [
@@ -26,10 +27,10 @@ const energyTrend = [
 ];
 
 const phaseProductivity = [
-  { phase: "Menstrual", score: 45, color: "#EC4899" },
-  { phase: "Follicular", score: 88, color: "#22C55E" },
-  { phase: "Ovulation", score: 76, color: "#F59E0B" },
-  { phase: "Luteal", score: 60, color: "#8B5CF6" },
+  { phase: "Menstrual", score: 45, color: PHASE.menstrual },
+  { phase: "Follicular", score: 88, color: PHASE.follicular },
+  { phase: "Ovulation", score: 76, color: PHASE.ovulation },
+  { phase: "Luteal", score: 60, color: PHASE.luteal },
 ];
 
 export default function Insights() {
@@ -77,18 +78,18 @@ export default function Insights() {
         <div className="h-56 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={energyTrend} margin={{ top: 5, right: 10, bottom: 0, left: -20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#F0F0F5" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke={GRID} vertical={false} />
               <XAxis dataKey="day" tickLine={false} axisLine={false} fontSize={12} />
               <YAxis domain={[0, 5]} tickLine={false} axisLine={false} fontSize={12} />
               <Tooltip
-                contentStyle={{ borderRadius: 12, border: "1px solid #EEE" }}
+                contentStyle={{ borderRadius: 12, border: `1px solid ${GRID}` }}
               />
               <Line
                 type="monotone"
                 dataKey="energy"
-                stroke="#6554E8"
+                stroke={BRAND}
                 strokeWidth={3}
-                dot={{ r: 4, fill: "#6554E8" }}
+                dot={{ r: 4, fill: BRAND }}
                 activeDot={{ r: 6 }}
               />
             </LineChart>
@@ -102,12 +103,12 @@ export default function Insights() {
         <div className="h-56 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={phaseProductivity} margin={{ top: 5, right: 10, bottom: 0, left: -20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#F0F0F5" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke={GRID} vertical={false} />
               <XAxis dataKey="phase" tickLine={false} axisLine={false} fontSize={11} />
               <YAxis domain={[0, 100]} tickLine={false} axisLine={false} fontSize={12} />
               <Tooltip
-                cursor={{ fill: "#F7F6F5" }}
-                contentStyle={{ borderRadius: 12, border: "1px solid #EEE" }}
+                cursor={{ fill: SAND }}
+                contentStyle={{ borderRadius: 12, border: `1px solid ${GRID}` }}
               />
               <Bar dataKey="score" radius={[8, 8, 0, 0]}>
                 {phaseProductivity.map((entry) => (

@@ -273,7 +273,7 @@ function SortableTask({
         {...attributes}
         {...listeners}
         aria-label="Drag to reorder"
-        className="cursor-grab touch-none text-neutral-300 hover:text-neutral-500 active:cursor-grabbing"
+        className="cursor-grab touch-none text-neutral-400 hover:text-neutral-700 active:cursor-grabbing"
       >
         <MdDragIndicator size={20} />
       </button>

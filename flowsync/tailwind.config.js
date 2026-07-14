@@ -20,15 +20,31 @@ export default {
         ],
       },
       colors: {
-        // Primary brand (violet) — consolidates the ad-hoc #6554E8 / #635BFF / #5B4BDB
+        // Primary brand (violet) — the ONLY violet. Replaces the ad-hoc
+        // #635BFF / #5B4BDB / #6B5BEB / violet-600 / indigo-600 drift.
         brand: {
           DEFAULT: "#6554E8",
           dark: "#5041C4",
           light: "#8A74FF",
           soft: "#F2F0FF",
+          deep: "#24006D",
         },
-        // App surfaces
-        sand: "#F7F6F5",
+        // App surfaces — one cream, not six
+        sand: {
+          DEFAULT: "#F7F6F5",
+          field: "#F6F3EF", // input fill
+          deep: "#ECE9E7", // recessed panels
+        },
+        // Accent surfaces. `ink` is the text/icon color that passes AA on it.
+        mint: {
+          DEFAULT: "#D7F0CB",
+          ink: "#41603C",
+        },
+        blush: {
+          DEFAULT: "#F8D8EB",
+          ink: "#7A3B5E",
+        },
+        mauve: "#8D7785",
         // Cycle phase colors
         phase: {
           follicular: "#22C55E",

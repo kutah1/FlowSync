@@ -29,7 +29,7 @@ function StepItem({ step, icon, iconBg, title, description }: StepItemProps) {
 
 export default function Steps() {
   return (
-    <section className="bg-[#F8F7F5] px-6 pb-20">
+    <section className="bg-sand px-6 pb-20">
       <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
         <StepItem
           step="1"
@@ -40,15 +40,15 @@ export default function Steps() {
         />
         <StepItem
           step="2"
-          icon={<LuTrendingUp className="text-[24px] text-[#5D715B]" />}
-          iconBg="bg-[#D7F0CB]"
+          icon={<LuTrendingUp className="text-[24px] text-mint-ink" />}
+          iconBg="bg-mint"
           title="Understand Your Energy"
           description="FlowSync analyzes your data against cycle phases to predict your high-focus and low-energy windows."
         />
         <StepItem
           step="3"
-          icon={<LuShieldCheck className="text-[24px] text-[#5B4257]" />}
-          iconBg="bg-[#F8D8EB]"
+          icon={<LuShieldCheck className="text-[24px] text-blush-ink" />}
+          iconBg="bg-blush"
           title="Prioritize Smarter"
           description="Your tasks are automatically sorted — deep work during peaks, admin during lulls, rest when you need it."
         />

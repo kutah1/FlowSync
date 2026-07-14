@@ -46,7 +46,7 @@ export default function Login() {
               <input
                 type="email"
                 placeholder="janice@flowsync.com"
-                className="h-14 w-full rounded-full bg-[#F6F3EF] px-6 text-[15px] outline-none placeholder:text-[#A8A4A0]"
+                className="h-14 w-full rounded-full bg-sand-field px-6 text-[15px] outline-none placeholder:text-neutral-400"
               />
             </div>
 
@@ -58,7 +58,7 @@ export default function Login() {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  className="h-14 w-full rounded-full bg-[#F6F3EF] px-6 pr-14 text-[15px] outline-none"
+                  className="h-14 w-full rounded-full bg-sand-field px-6 pr-14 text-[15px] outline-none"
                 />
                 <button
                   type="button"

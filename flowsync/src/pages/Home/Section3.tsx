@@ -1,6 +1,6 @@
 export default function HarmonySteps() {
   return (
-    <section className="bg-[#F8F7F5] px-6 py-20">
+    <section className="bg-sand px-6 py-20">
       <div className="mx-auto max-w-2xl text-center">
         <span className="inline-flex items-center rounded-full bg-brand-soft px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-brand">
           How it works

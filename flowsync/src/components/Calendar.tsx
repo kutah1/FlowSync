@@ -39,7 +39,7 @@ export default function Calendar({ value, onChange }: Props) {
 
         <button
           onClick={() => onChange(subMonths(value, 1))}
-          className="rounded-full p-2 hover:bg-gray-100"
+          className="rounded-full p-2 text-neutral-700 hover:bg-neutral-100"
         >
           <FiChevronLeft />
         </button>
@@ -50,14 +50,14 @@ export default function Calendar({ value, onChange }: Props) {
 
         <button
           onClick={() => onChange(addMonths(value, 1))}
-          className="rounded-full p-2 hover:bg-gray-100"
+          className="rounded-full p-2 text-neutral-700 hover:bg-neutral-100"
         >
           <FiChevronRight />
         </button>
 
       </div>
 
-      <div className="grid grid-cols-7 text-center text-xs text-gray-400">
+      <div className="grid grid-cols-7 text-center text-xs text-neutral-500">
         {["M","T","W","T","F","S","S"].map(day=>(
           <div key={day} className="pb-3">{day}</div>
         ))}
@@ -78,10 +78,10 @@ export default function Calendar({ value, onChange }: Props) {
 
                 ${
                   selected
-                    ? "bg-[#635BFF] text-white shadow-lg"
+                    ? "bg-brand text-white shadow-brand"
                     : current
-                    ? "hover:bg-gray-100"
-                    : "text-gray-300"
+                    ? "text-neutral-800 hover:bg-neutral-100"
+                    : "text-neutral-400 hover:bg-neutral-100"
                 }
               `}
             >
@@ -91,12 +91,12 @@ export default function Calendar({ value, onChange }: Props) {
         })}
       </div>
 
-      <div className="mt-6 flex gap-3 rounded-xl bg-[#F9F5F8] p-4">
-        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-pink-100">
+      <div className="mt-6 flex gap-3 rounded-xl bg-blush/40 p-4">
+        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-blush">
           📍
         </div>
 
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-neutral-600">
           If you're not sure, an estimate is perfectly fine!
         </p>
 

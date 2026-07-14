@@ -20,7 +20,7 @@ const variants: Record<Variant, string> = {
   secondary:
     "bg-white text-neutral-800 border border-neutral-200 hover:bg-neutral-50",
   ghost: "bg-transparent text-brand hover:bg-brand-soft",
-  soft: "bg-brand-soft text-brand hover:bg-[#E7E3FF]",
+  soft: "bg-brand-soft text-brand hover:bg-brand-light/30",
 };
 
 const sizes: Record<Size, string> = {

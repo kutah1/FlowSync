@@ -55,7 +55,7 @@ export default function NewIntentModal({
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-violet-600 hover:bg-violet-200"
+          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-brand-soft text-brand hover:bg-brand-light/30"
         >
           <FiX size={16} />
         </button>
@@ -81,7 +81,7 @@ export default function NewIntentModal({
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="E.g., Deep Work: Product Strategy"
-              className="mt-2 w-full rounded-xl bg-gray-100 px-4 py-3 text-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-violet-500"
+              className="mt-2 w-full rounded-xl bg-gray-100 px-4 py-3 text-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-brand"
             />
           </div>
 
@@ -101,8 +101,8 @@ export default function NewIntentModal({
                     onClick={() => setDifficulty(item.title)}
                     className={`rounded-2xl border p-3 transition ${
                       active
-                        ? "border-violet-600 bg-violet-600 text-white shadow-lg"
-                        : "border-neutral-200 bg-white text-gray-700 hover:border-neutral-300"
+                        ? "border-brand bg-brand text-white shadow-brand"
+                        : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300"
                     }`}
                   >
                     <div
@@ -133,7 +133,7 @@ export default function NewIntentModal({
                 type="date"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="w-full rounded-xl bg-gray-100 px-4 py-3 pr-10 text-sm outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full rounded-xl bg-gray-100 px-4 py-3 pr-10 text-sm outline-none focus:ring-2 focus:ring-brand"
               />
 
               <FiCalendar className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" />
@@ -149,7 +149,7 @@ export default function NewIntentModal({
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="mt-2 w-full rounded-xl bg-gray-100 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-violet-500"
+              className="mt-2 w-full rounded-xl bg-gray-100 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand"
             >
               <option>Creative Flow</option>
               <option>Work</option>
@@ -178,7 +178,7 @@ export default function NewIntentModal({
                   category,
                 })
               }
-              className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-[1.02]"
+              className="flex-1 rounded-xl bg-brand py-3 text-sm font-semibold text-white shadow-brand transition hover:bg-brand-dark"
             >
               Save Task →
             </button>

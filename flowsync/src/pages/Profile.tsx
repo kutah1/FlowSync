@@ -23,16 +23,16 @@ export default function Profile() {
     <div className="mx-auto w-full max-w-md">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-xl font-bold text-indigo-600">FlowSync</h1>
+          <h1 className="text-xl font-bold text-brand">FlowSync</h1>
           <button className="p-2 rounded-full bg-white shadow">
-            <FiSettings className="text-gray-600" />
+            <FiSettings className="text-neutral-600" />
           </button>
         </div>
 
         {/* Profile */}
         <div className="flex flex-col items-center">
           <div className="relative">
-            <div className="w-28 h-28 rounded-full bg-gradient-to-r from-indigo-500 via-pink-400 to-amber-300 p-1">
+            <div className="w-28 h-28 rounded-full bg-gradient-to-r from-brand via-phase-menstrual to-phase-ovulation p-1">
               <img
                 src="https://i.pravatar.cc/200?img=5"
                 alt="profile"
@@ -40,7 +40,7 @@ export default function Profile() {
               />
             </div>
 
-            <button className="absolute bottom-1 right-1 bg-indigo-600 text-white p-2 rounded-full shadow-lg">
+            <button className="absolute bottom-1 right-1 bg-brand text-white p-2 rounded-full shadow-brand">
               <FiEdit2 size={14} />
             </button>
           </div>
@@ -62,22 +62,22 @@ export default function Profile() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-white rounded-2xl p-4 shadow-sm">
-              <FiClock className="text-indigo-500 mb-3" />
-              <p className="text-xs text-gray-500">Last Period</p>
+              <FiClock className="text-brand mb-3" />
+              <p className="text-xs text-neutral-500">Last Period</p>
               <h3 className="font-bold text-xl mt-1">Oct 12</h3>
             </div>
 
             <div className="bg-white rounded-2xl p-4 shadow-sm">
-              <FiDroplet className="text-green-500 mb-3" />
-              <p className="text-xs text-gray-500">Cycle Length</p>
+              <FiDroplet className="text-phase-follicular mb-3" />
+              <p className="text-xs text-neutral-500">Cycle Length</p>
               <h3 className="font-bold text-xl mt-1">28 Days</h3>
             </div>
           </div>
 
           <div className="bg-white rounded-2xl shadow-sm mt-4 p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-pink-100 p-3 rounded-full">
-                <FiDroplet className="text-pink-500" />
+              <div className="bg-blush p-3 rounded-full">
+                <FiDroplet className="text-blush-ink" />
               </div>
 
               <div>
@@ -144,15 +144,15 @@ export default function Profile() {
         </div>
 
         {/* Bottom Card */}
-        <div className="mt-8 rounded-2xl bg-gradient-to-r from-pink-100 to-purple-100 p-4 flex gap-3">
-          <div className="w-10 h-10 rounded-full bg-purple-300 flex items-center justify-center text-xl">
+        <div className="mt-8 rounded-2xl bg-gradient-to-r from-blush/50 to-brand-soft p-4 flex gap-3">
+          <div className="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-xl">
             🙂
           </div>
 
-          <p className="text-sm italic text-gray-700">
+          <p className="text-sm italic text-neutral-700">
             You're in your <b>Follicular</b> phase.
             <br />
-            <span className="text-gray-500">
+            <span className="text-neutral-500">
               Great day to pursue your goals!
             </span>
           </p>

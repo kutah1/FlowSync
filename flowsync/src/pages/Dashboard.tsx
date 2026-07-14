@@ -7,6 +7,7 @@ import {
   HiOutlineChartBar,
 } from "react-icons/hi2";
 import { useNavigate } from "react-router";
+import { BRAND, GRID } from "../constants/colors";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ export default function Dashboard() {
                   cx="72"
                   cy="72"
                   r="52"
-                  stroke="#ECECF5"
+                  stroke={GRID}
                   strokeWidth="10"
                   fill="none"
                 />
@@ -104,7 +105,7 @@ export default function Dashboard() {
                   cx="72"
                   cy="72"
                   r="52"
-                  stroke="#5B4BDB"
+                  stroke={BRAND}
                   strokeWidth="10"
                   fill="none"
                   strokeLinecap="round"
@@ -122,15 +123,15 @@ export default function Dashboard() {
           </div>
 
           <div className="mt-5 flex justify-center">
-            <span className="rounded-full bg-[#5B4BDB] px-4 py-2 text-sm font-medium text-white">
+            <span className="rounded-full bg-brand px-4 py-2 text-sm font-medium text-white">
               High Energy Day
             </span>
           </div>
         </div>
 
         {/* MOOD */}
-        <div className="rounded-3xl bg-[#F5F0FF] p-6 text-center">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-pink-300 to-purple-500 text-3xl">
+        <div className="rounded-3xl bg-brand-soft p-6 text-center">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blush to-brand text-3xl">
             🙂
           </div>
 
@@ -150,7 +151,7 @@ export default function Dashboard() {
               Today's Focus
             </h2>
 
-            <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-[#5B4BDB]">
+            <span className="rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-brand">
               Recommended
             </span>
           </div>
@@ -162,8 +163,8 @@ export default function Dashboard() {
                 className="flex items-center justify-between rounded-2xl bg-gray-50 p-4"
               >
                 <div className="flex gap-4">
-                  <div className="mt-1 rounded-xl bg-indigo-100 p-2">
-                    <HiOutlineSparkles className="text-[#5B4BDB]" />
+                  <div className="mt-1 rounded-xl bg-brand-soft p-2">
+                    <HiOutlineSparkles className="text-brand" />
                   </div>
 
                   <div>
@@ -185,7 +186,7 @@ export default function Dashboard() {
                   type="checkbox"
                   checked={task.done}
                   onChange={() => toggleTask(task.id)}
-                  className="h-5 w-5 accent-[#5B4BDB]"
+                  className="h-5 w-5 accent-brand"
                 />
               </div>
             ))}
@@ -211,7 +212,7 @@ export default function Dashboard() {
 
           <button
             onClick={() => navigate("/app/checkin")}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#DDF5D6] py-4 font-medium text-gray-800 hover:bg-[#d4efcb] transition"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-mint py-4 font-medium text-mint-ink transition hover:brightness-95"
           >
             <HiOutlineClipboardDocumentList />
             Daily Check-In
